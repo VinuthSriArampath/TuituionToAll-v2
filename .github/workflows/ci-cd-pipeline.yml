@@ -76,7 +76,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ env.REPO_NAME_SHORT }}
+            ${{ secrets.DOCKER_USERNAME }}/tuitiontoall
             ghcr.io/${{ env.REPO_NAME }}
           tags: |
             type=raw,value=${{ steps.get_version.outputs.PROJECT_VERSION }}
@@ -90,7 +90,7 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ env.REPO_NAME_SHORT }}:${{ steps.get_version.outputs.PROJECT_VERSION }}
+            ${{ secrets.DOCKER_USERNAME }}/tuitiontoall:${{ steps.get_version.outputs.PROJECT_VERSION }}
             ghcr.io/${{ env.REPO_NAME }}:${{ steps.get_version.outputs.PROJECT_VERSION }}
           build-args: |
             JAR_FILE=${{ steps.find_jar.outputs.JAR_PATH }}
